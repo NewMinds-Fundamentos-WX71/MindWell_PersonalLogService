@@ -26,6 +26,11 @@ public class PersonalLogService : IPersonalLogService
         return await _personalLogRepository.FindByIdAsync(id);
     }
 
+    public async Task<IEnumerable<Domain.Models.PersonalLog>> GetByUserIdAsync(int id)
+    {
+        return await _personalLogRepository.GetByUserIdAsync(id);
+    }
+
     public async Task<PersonalLogResponse> SaveAsync(Domain.Models.PersonalLog personalLog)
     {
         try

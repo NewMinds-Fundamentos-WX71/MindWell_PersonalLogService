@@ -6,6 +6,7 @@ public interface IPersonalLogService
 {
     Task<IEnumerable<Models.PersonalLog>> ListAsync();
     Task<Models.PersonalLog> GetByIdAsync(int id);
+    Task<IEnumerable<Models.PersonalLog>> GetByUserIdAsync(int id);
     Task<PersonalLogResponse> SaveAsync(Models.PersonalLog personalLog);
     Task<PersonalLogResponse> UpdateAsync(int id, Models.PersonalLog personalLog);
     Task<PersonalLogResponse> DeleteAsync(int id);

@@ -21,6 +21,11 @@ public class PersonalLogRepository : BaseRepository, IPersonalLogRepository
         return await _context.PersonalLogs.FindAsync(id);
     }
 
+    public async Task<IEnumerable<Domain.Models.PersonalLog>> GetByUserIdAsync(int id)
+    {
+        return await _context.PersonalLogs.Where(x => x.Users_Id == id).ToListAsync();
+    }
+
     public async Task AddAsync(Domain.Models.PersonalLog personalLog)
     {
         await _context.PersonalLogs.AddAsync(personalLog);
